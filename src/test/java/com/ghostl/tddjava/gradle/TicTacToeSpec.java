@@ -1,5 +1,7 @@
 package com.ghostl.tddjava.gradle;
 
+import static org.junit.Assert.assertEquals;
+
 import org.junit.Before;
 import org.junit.Rule;
 import org.junit.Test;
@@ -35,5 +37,16 @@ public class TicTacToeSpec {
 		exception.expect(RuntimeException.class);
 		ticTacToe.play(2, 1);
 		
+	}
+	
+	@Test
+	public void givenTheFirstTurnWhenNextPlayerThenX(){
+		assertEquals('X', ticTacToe.nextPlayer());
+	}
+	
+	@Test
+	public void givenLastTurnWasXWhenNextPlayerThenO(){
+		ticTacToe.play(1, 1);
+		assertEquals('O', ticTacToe.nextPlayer());
 	}
 }
